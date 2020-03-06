@@ -1,0 +1,76 @@
+<html>
+<head>
+<style>
+body {
+	background-color:#224;
+	background-image: linear-gradient(to bottom right,#224, #448);
+	color:white;
+	font-family:Raleway,sans-serif;
+	margin:4ex;
+}
+img{
+	border-radius: 13px;
+	box-shadow: 5px 5px 5px black;
+	border:5px;
+}
+a {color: white;}
+</style>
+</head>
+<body>
+	<h1><img src='puzzlebox.jpg' style='float:right'>Puzzle Box</h1>
+<p>This makes a customised puzzle box with random maze. Use <a href='https://www.openscad.org'>OpenSCAD</a> to render to an STL for 3D printing.</p>
+<p>See <a href='https://www.thingiverse.com/thing:2410748'>https://www.thingiverse.com/thing:2410748</a> for examples.</p>
+<p>Do click <i>like</i> on thingiverse. Gifts <a href='https://monzo.me/adriankennard'>accepted</a> (just because people have asked how they can do this).</p>
+<form method=get action='puzzlebox.cgi'>
+	<input type=submit value='Get OpenSCAD file'>
+	<table>
+<tr><td><label for='m'>m=</label></td><td><select name='m' id='m'><option value='2'>2</option><option value='3'>3</option><option value='4' selected>4</option><option value='5'>5</option><option value='6'>6</option></select>N</td><td><label for='m'>Total parts</label></td></tr>
+<tr><td><label for='n'>n=</label></td><td><select name='n' id='n'><option value='0' selected>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option></select>N (0 for all)</td><td><label for='n'>Part to make</label></td></tr>
+<tr><td><label for='i'>i</label></td><td><input type=checkbox id='i' name='i'/></td><td><label for='i'>Maze on inside (hard)</label></td></tr>
+<tr><td><label for='f'>f</label></td><td><input type=checkbox id='f' name='f'/></td><td><label for='f'>Alternating inside/outside maze</label></td></tr>
+<tr><td><label for='N'>N=</label></td><td><select name='N' id='N'><option value='1'>1</option><option value='2'>2</option><option value='3' selected>3</option></select>N</td><td><label for='N'>Nubs</label></td></tr>
+<tr><td><label for='H'>H=</label></td><td><select name='H' id='H'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3' selected>3</option></select>N (0 for non helical)</td><td><label for='H'>Helix</label></td></tr>
+<tr><td><label for='b'>b=</label></td><td><input size='5' name='b' id='b' value='10'/>mm</td><td><label for='b'>Base height</label></td></tr>
+<tr><td><label for='c'>c=</label></td><td><input size='5' name='c' id='c' value='10'/>mm</td><td><label for='c'>Core diameter for content</label></td></tr>
+<tr><td><label for='h'>h=</label></td><td><input size='5' name='h' id='h' value='50'/>mm</td><td><label for='h'>Core height for content</label></td></tr>
+<tr><td><label for='C'>C=</label></td><td><input size='5' name='C' id='C'/>mm</td><td><label for='C'>Core gap to allow content to be removed</label></td></tr>
+<tr><td><label for='q'>q</label></td><td><input type=checkbox id='q' name='q'/></td><td><label for='q'>Core solid (content is in part 2)</label></td></tr>
+<tr><td><label for='B'>B=</label></td><td><input size='5' name='B' id='B' value='1.6'/>mm</td><td><label for='B'>Base thickness</label></td></tr>
+<tr><td><label for='G'>G=</label></td><td><input size='5' name='G' id='G' value='0.4'/>mm</td><td><label for='G'>Base gap (Z clearance)</label></td></tr>
+<tr><td><label for='W'>W</label></td><td><input type=checkbox id='W' name='W'/></td><td><label for='W'>Inside base full width</label></td></tr>
+<tr><td><label for='w'>w=</label></td><td><input size='5' name='w' id='w' value='1.2'/>mm</td><td><label for='w'>Wall thickness</label></td></tr>
+<tr><td><label for='t'>t=</label></td><td><input size='5' name='t' id='t' value='2'/>mm</td><td><label for='t'>Maze thickness</label></td></tr>
+<tr><td><label for='z'>z=</label></td><td><input size='5' name='z' id='z' value='3'/>mm</td><td><label for='z'>Maze spacing</label></td></tr>
+<tr><td><label for='M'>M=</label></td><td><input size='5' name='M' id='M' value='1'/>mm</td><td><label for='M'>Maze top margin</label></td></tr>
+<tr><td><label for='X'>X=</label></td><td><select name='X' id='X'><option value='-10'>-10</option><option value='-9'>-9</option><option value='-8'>-8</option><option value='-7'>-7</option><option value='-6'>-6</option><option value='-5'>-5</option><option value='-4'>-4</option><option value='-3'>-3</option><option value='-2'>-2</option><option value='-1'>-1</option><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5' selected>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select>-10 to 10</td><td><label for='X'>Maze complexity</label></td></tr>
+<tr><td><label for='p'>p=</label></td><td><input size='5' name='p' id='p' value='0.7'/>mm</td><td><label for='p'>Thickness of park ridge to click closed</label></td></tr>
+<tr><td><label for='v'>v</label></td><td><input type=checkbox id='v' name='v'/></td><td><label for='v'>Park vertically</label></td></tr>
+<tr><td><label for='g'>g=</label></td><td><input size='5' name='g' id='g' value='0.4'/>mm</td><td><label for='g'>General X/Y clearance</label></td></tr>
+<tr><td><label for='s'>s=</label></td><td><select name='s' id='s'><option value='0'>0</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7' selected>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option></select>N (0=round)</td><td><label for='s'>Number of outer sides</label></td></tr>
+<tr><td><label for='r'>r=</label></td><td><input size='5' name='r' id='r' value='2'/>mm</td><td><label for='r'>Outer rounding on ends</label></td></tr>
+<tr><td><label for='R'>R=</label></td><td><input size='5' name='R' id='R' value='2'/>mm</td><td><label for='R'>Grip depth</label></td></tr>
+<tr><td><label for='D'>D=</label></td><td><input size='5' name='D' id='D' value='0.5'/>mm</td><td><label for='D'>Text depth</label></td></tr>
+<tr><td><label for='E'>E=</label></td><td><input name='E' id='E' size='2'/>X{\X...}</td><td><label for='E'>Text (initials) on end</label></td></tr>
+<tr><td><label for='S'>S=</label></td><td><input name='S' id='S'/>Text{\Text...}</td><td><label for='S'>Text on sides</label></td></tr>
+<tr><td><label for='F'>F=</label></td><td><input name='F' id='F'/>Font</td><td><label for='F'>Text font (optional)</label></td></tr>
+<tr><td><label for='e'>e=</label></td><td><input name='e' id='e'/>Font</td><td><label for='e'>Text font for end (optional)</label></td></tr>
+<tr><td><label for='Z'>Z</label></td><td><input type=checkbox id='Z' name='Z'/></td><td><label for='Z'>Text has diagonal edges (very slow)</label></td></tr>
+<tr><td><label for='T'>T=</label></td><td><input size='5' name='T' id='T' value='1'/>N</td><td><label for='T'>Scale side text (i.e. if too long)</label></td></tr>
+<tr><td><label for='O'>O</label></td><td><input type=checkbox id='O' name='O'/></td><td><label for='O'>Text on sides is outset not embossed</label></td></tr>
+<tr><td><label for='I'>I=</label></td><td><input name='I' id='I'/>X{\X...}</td><td><label for='I'>Text (initials) inside end</label></td></tr>
+<tr><td><label for='L'>L=</label></td><td><input size='5' name='L' id='L' value='0.6'/>mm</td><td><label for='L'>Logo (and inside text) cut depth</label></td></tr>
+<tr><td><label for='V'>V</label></td><td><input type=checkbox id='V' name='V'/></td><td><label for='V'>Symmetric maze cut</label></td></tr>
+<tr><td><label for='y'>y=</label></td><td><input size='5' name='y' id='y' value='0.1'/>mm</td><td><label for='y'>Extra clearance on radius for nub</label></td></tr>
+<tr><td><label for='Z'>Z=</label></td><td><input size='5' name='Z' id='Z' value='0.2'/>mm</td><td><label for='Z'>Extra clearance on height of nub</label></td></tr>
+<tr><td><label for='A'>A</label></td><td><input type=checkbox id='A' name='A'/></td><td><label for='A'>Include A&A logo in last lid</label></td></tr>
+<tr><td><label for='Q'>Q</label></td><td><input type=checkbox id='Q' name='Q'/></td><td><label for='Q'>Test pattern instead of maze</label></td></tr>
+	</table>
+	<input type=submit value='Get OpenSCAD file'>
+</form>
+<p><i>Some parameters are subject to sanity checks, e.g. nubs set to helix if greater than 1, etc. See comments at top of output for parameters actually used.</i></p>
+<p>Source code at <a href='https://github.com/revk/PuzzleBox'>https://github.com/revk/PuzzleBox</a></p>
+<p style='font-size:50%'>[Note, licence is creative commons ATTRIBUTION. A commercial licence is available if not using CCA, at £10 per print sold. If you are not attributing you are either breaking the law by using without a licence and so costing me the £10 I would get, or are agreeing to the commercial licence. Either way you owe me £10 a print, plus legal costs if I choose to sue you to get it. So ATTRIBUTE any usage of this model.]</p>
+<hr/>
+<address>By RevK<sup>&reg;</sup> <a href='https://www.me.uk/'>www.me.uk</a> <a href='https://twitter.com/TheRealRevK'>@TheRealRevK</a></address>
+</body>
+</html>
